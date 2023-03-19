@@ -1,0 +1,22 @@
+{
+  "name": "mch-main",
+  "version": "1.0.0",
+  "description": "MCH bot for WebPage",
+  "main": "index.js",
+  "engines":{
+    "node":"18.15.0",
+    "npm": "9.5.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "MCH-Main"
+  },
+  "author": "MCH",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
