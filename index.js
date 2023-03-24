@@ -1,11 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const port = process.env.PORT || 5000;
 const app=express();
 
-app.arguments(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
+app.get('df/server', (req,res)=>{
+    res.send("hi from server")
+})
 
-require('./routes/dialogFlowRoutes')(app);
+require('./routes/dialogFlowRoutes')
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT);
+app.listen(port, ()=>{
+    console.log("server is running");
+})
