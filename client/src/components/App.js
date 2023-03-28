@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Header from './Header';
 import Landing from './pages/Landing';
@@ -10,11 +10,13 @@ import Chatbot from './chatbot/Chatbot';
 const App = () =>(
     <div>
         <BrowserRouter>
-        <div>
+        <div className="container">
             <Header/>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/pages" component={About} />
-            <Route exact path="/library" component={Library} />
+            <Routes>
+            <Route exact path="/" element={<Landing/>} />
+            <Route exact path="/pages" element={<About/>} />
+            <Route exact path="/library" element={<Library/>} />
+            </Routes>
             <Chatbot/>
         </div>
         </BrowserRouter>
