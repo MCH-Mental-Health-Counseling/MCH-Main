@@ -3,6 +3,7 @@ import axios from 'axios';
 import Message from './Message';
 import Cookies from 'universal-cookie';
 import { v4 as uuid } from 'uuid';
+import Card from './Card';
 //import ReactDOM from "react-dom";
 //import ChatBot from 'react-simple-chatbot';
 
@@ -36,6 +37,7 @@ class Chatbot extends Component {
         this.setState({ messages: [...this.state.messages, says] });
         const res = await axios.post('/api/df_text_query', { text: queryText, userID: cookies.get('userID') });
         for (let msg of res.data.fulfillmentMessages) {
+            console.log(JSON.stringify(msg));
             says = {
                 speaks: 'MHC',
                 msg: msg
@@ -64,12 +66,39 @@ class Chatbot extends Component {
         this.talkInput.focus();
     }
 
+    renderCards(cards) {
+        return cards.map((card, i) => <Card key={i} payload={card.structValue} />);
+    }
+
+    renderOneMessage(message, i) {
+
+        if (message.msg && message.msg.text && message.msg.text.text) {
+            return <Message key={i} speaks={message.speaks} text={message.msg.text.text} />;
+        } else if (message.msg && message.msg.payload.fields.cards) { //message.msg.payload.fields.cards.listValue.values
+
+            return <div key={i}>
+                <div className="card-panel grey lighten-5 z-depth-1">
+                    <div style={{ overflow: 'hidden' }}>
+                        <div className="col s2">
+                            <a href="/" className="btn-floating btn-large waves-effect waves-light blue">{message.speaks}</a>
+                        </div>
+                        <div>
+                            <div style={{ height: 300, width: message.msg.payload.fields.cards.listValue.values.length * 270 }}>
+                                {this.renderCards(message.msg.payload.fields.cards.listValue.values)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
     renderMessages(returnedMessages) {
         if (returnedMessages) {
             return returnedMessages.map((message, i) => {
-                return <Message key={i} speaks={message.speaks} text={message.msg.text.text} />;
+                return this.renderOneMessage(message, i);
             }
-            )
+            );
         } else {
             return null;
         }
@@ -83,14 +112,21 @@ class Chatbot extends Component {
     }
     render() {
         return (
-            <div style={{ height: 400, width: 400, float: 'right' }}>
-                <div id="chatbot" style={{ height: '100%', width: '100%', overflow: 'auto' }}>
-                    <h2>MHC Agent</h2>
+            <div style={{ minHeight: 500, maxHeight: 500, width: 400, position: 'absolute', bottom: 0, right: 0, border: '1px solid lightgray' }}>
+                <nav>
+                    <div className="nav-wrapper">
+                        <a href="/" className="brand-logo">MHC Agent</a>
+                    </div>
+                </nav>
+
+                <div id="chatbot" style={{ minHeight: 388, maxHeight: 388, width: '100%', overflow: 'auto' }}>
                     {this.renderMessages(this.state.messages)}
                     <div ref={(el) => { this.messagesEnd = el; }}
                         style={{ float: "left", clear: "both" }}>
                     </div>
-                    <input type="text" ref={(input) => { this.talkInput = input; }} onKeyPress={this._handleInputKeyPress} />
+                </div>
+                <div className=" col s12" >
+                    <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={(input) => { this.talkInput = input; }} placeholder="type a message:" onKeyPress={this._handleInputKeyPress} id="user_says" type="text" />
                 </div>
             </div>
         );
