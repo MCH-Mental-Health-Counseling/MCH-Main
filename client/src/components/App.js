@@ -7,18 +7,18 @@ import About from './pages/About';
 import Library from './library/Library';
 import Chatbot from './chatbot/Chatbot';
 
-const App = () =>(
+const App = () => (
     <div>
         <BrowserRouter>
-        <div className="container">
-            <Header/>
-            <Routes>
-            <Route exact path="/" element={<Landing/>} />
-            <Route exact path="/pages" element={<About/>} />
-            <Route exact path="/library" element={<Library/>} />
-            </Routes>
-            <Chatbot/>
-        </div>
+            <div className="container">
+                <Header>
+                    <Routes>
+                        <Route exact path="/" element={<Landing />} />
+                        <Route exact path="/pages" element={<About />} />
+                        <Route exact path="/library" element={<Library />} />
+                    </Routes>
+                </Header>
+            </div>
         </BrowserRouter>
     </div>
 )
