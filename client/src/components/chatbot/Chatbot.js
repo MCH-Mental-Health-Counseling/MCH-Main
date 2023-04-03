@@ -134,12 +134,13 @@ const Chatbot = () => {
       e.target.value = '';
     }
   }
-
+  const orgIcon = require('../Images/Organization Logo.png');
   return (
     <div style={{ minHeight: 500, maxHeight: 500, minWidth: 450, maxWidth: 450, position: 'absolute', bottom: 0, right: 0, border: '1px solid lightgray' }}>
       <nav>
         <div className="nav-wrapper blue">
-          <a href="/" className="brand-logo">MHC Agent</a>
+        <img src={orgIcon} className="btn-floating" style={{width: '45px', height: '45px', backgroundColor: 'white', marginLeft:'5%'}}/>
+          <a href="/" className="brand-logo" style={{marginLeft:"2%"}}>MHC Agent</a>
         </div>
       </nav>
 
@@ -150,7 +151,7 @@ const Chatbot = () => {
         </div>
       </div>
       <div className=" col s12" >
-        <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={talkInput} placeholder="type a message:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
+        <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={talkInput} placeholder="Type your message...:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
       </div>
     </div>
   );

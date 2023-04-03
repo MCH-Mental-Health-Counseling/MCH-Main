@@ -1,0 +1,8 @@
+Testing Results:
+
+Initial phase of testing is complete for the design and sample conversation - Passed.
+Improvements to consider:
+1. Train the chatbot even more dataset for a user friendly conversation.
+2. UI needs to be improved.
+3. Few conversation from the chatbot needs improvement.
+4. Add About and Library pages
