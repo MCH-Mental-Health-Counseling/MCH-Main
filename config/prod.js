@@ -4,5 +4,6 @@ module.exports = {
     googlePrivateKey: JSON.parse(process.env.GOOGLE_PRIVATE_KEY),
     googleClientEmail: process.env.GOOGLE_CLIENT_EMAIL,
     dialogFlowSessionID: process.env.DIALOGFLOW_SESSION_ID,
-    dialogFlowSessionLanguageCode: process.env.DIALOGFLOW_LANGUGAGE_CODE
+    dialogFlowSessionLanguageCode: process.env.DIALOGFLOW_LANGUGAGE_CODE,
+    mongoURI:process.env.MONGO_URI
 };
