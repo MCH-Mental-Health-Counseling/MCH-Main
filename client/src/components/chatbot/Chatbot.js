@@ -5,6 +5,7 @@ import Cookies from 'universal-cookie';
 import { v4 as uuid } from 'uuid';
 import Card from './Card';
 import QuickReplies from './QuickReplies';
+import "./Chatbot.scss";
 //import ReactDOM from "react-dom";
 //import ChatBot from 'react-simple-chatbot';
 
@@ -137,21 +138,21 @@ const Chatbot = () => {
   }
   const orgIcon = require('../Images/Organization Logo.png');
   return (
-    <div style={{ minHeight: 500, maxHeight: 500, minWidth: 450, maxWidth: 450, position: 'absolute', bottom: 0, right: 0, border: '1px solid lightgray' }}>
+    <div style={{ position: 'absolute' }} className='chatBoat_content'>
       <nav>
-        <div className="nav-wrapper blue">
+        <div className="chatboat-nav-wrapper blue">
         <img src={orgIcon} className="btn-floating" style={{width: '45px', height: '45px', backgroundColor: 'white', marginLeft:'5%'}}/>
           <a href="/" className="brand-logo" style={{marginLeft:"2%"}}>MHC Agent</a>
         </div>
       </nav>
 
-      <div id="chatbot" style={{ minHeight: 388, maxHeight: 388, width: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+      <div id="chatbot" style={{ width: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
         {renderMessages(messages)}
         <div ref={messagesEnd}
           style={{ float: "left", clear: "both" }}>
         </div>
       </div>
-      <div className=" col s12" >
+      <div className="col s12" >
         <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={talkInput} placeholder="Type your message...:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
       </div>
     </div>

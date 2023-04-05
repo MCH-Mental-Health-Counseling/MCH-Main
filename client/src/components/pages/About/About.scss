@@ -1,0 +1,81 @@
+.about_container {
+    height: 100%;
+    .about_header {
+        height: 38rem;
+        // background-image: url("https://sharetree.org/wp-content/uploads/2020/06/Our-Purpose-01.jpg");
+        background-image: url("https://sharetree.org/wp-content/uploads/2020/06/ST-Services-01.jpg");
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: 100% 100%;
+        text-align: center;
+        object-fit: fill;
+        h2 {
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+            padding-top: 7%;
+            font-weight: 600;
+            font-size: 5rem;
+        }
+        h3 {
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 2.3rem;
+            padding-top: 1%;
+            font-weight: 600;
+            width: 75%;
+            margin: auto;
+            line-height: 1.5;
+        }
+    }
+    .about_content {
+        padding: 2% 8% 1%;
+        h4 {
+            color: #2d80b5;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .library_sugetions_block {
+            display: grid;
+            grid-template-columns: 32% 32% 32%;
+            width: 98%;
+            margin: auto;
+            column-gap: 2%;
+            margin-bottom: 1rem;
+        }
+        .library_sugetions_card {
+            box-shadow: 0 0 2px #5a555a;
+            border-radius: 6px;
+            min-height: 16rem;
+            max-height: 30rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            cursor: pointer;
+            padding: 2% 5% 3.5%;
+            &:hover {
+                transform: scale(1.02);
+            }  
+            h3{
+                font-size: 1.7rem;
+                font-weight: 600;
+                color: #5a555a;
+                text-transform: capitalize;
+            } 
+            p{
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin-bottom: 0;
+            }
+            li{
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                color: #000;
+                cursor: pointer;
+                opacity: 0.8;
+            }
+        }
+    }
+}

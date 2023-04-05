@@ -1,0 +1,27 @@
+.header_container {
+    .nav-wrapper {
+        background: #2d80b5;
+        opacity: 1;
+        padding: 0% 1%;
+        height: 9vh;
+    }
+    nav ul a {
+        font-size: 1.45rem;
+        font-weight: 400;
+    }
+    .brand-logo{
+        img{
+            width: 5rem;
+            margin-top: 0.6rem;
+            border-radius: 50%;
+            height: 5rem;
+            cursor: pointer;
+            object-fit: fill;
+        }
+    }
+    .content_block{
+        height: 91vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
