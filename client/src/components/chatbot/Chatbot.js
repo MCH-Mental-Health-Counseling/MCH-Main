@@ -58,7 +58,7 @@ const Chatbot = () => {
         cookies.set('userID', uuid(), { path: '/' });
         console.log(cookies.get('userID'));
       }
-      df_event_query('Welcome');
+      df_event_query('Greeting');
     }
   }, []);
 
@@ -70,6 +70,7 @@ const Chatbot = () => {
     });
     talkInput?.current?.focus();
   }, [messagesEnd, talkInput]);
+  
 
   const _handleQuickReplyPayload = (event, payload, text) => {
     event.preventDefault();

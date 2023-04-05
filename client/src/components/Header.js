@@ -10,6 +10,7 @@ const Header = (props) => (
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link to={'/library'}>Library</Link></li>
                     <li><Link to={'/pages'}>About Us</Link></li>
+                    <li><Link to={'/login'}>Login</Link></li>
                 </ul>
             </div>
         </nav>
