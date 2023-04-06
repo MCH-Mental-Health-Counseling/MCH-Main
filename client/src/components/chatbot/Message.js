@@ -10,11 +10,11 @@ const Message = (props) => {
                 {props.speaks === 'MHC' && <div className="row valign-wrapper" style={{ display: 'flex', alignItems: 'center', marginBottom: 0 }}>
 
                     <div className="col" style={{ marginLeft: '2%', marginTop: '2%' }}>
-                        <img src={orgIcon} className="btn-floating" style={{width: '32px', height: '32px', backgroundColor: 'white'}}/>
+                        <img src={orgIcon} className="btn-floating" style={{ width: '40px', height: '40px', backgroundColor: 'white' }} />
                         {/*<a className="btn-floating waves-effect waves-light blue" style={{ fontSize: '11px', textAlign: 'center' }}>{props.speaks}</a>*/}
                     </div>
                     <div style={{ marginTop: '2%', width: '65%' }}>
-                        <span className="black-text" style={{ backgroundColor: '#e8e4e4', display:'inline-block', padding: '2%', borderRadius: '5px' }}>
+                        <span className="black-text" style={{ backgroundColor: '#e8e4e4', display: 'inline-block', padding: '2%', borderRadius: '5px' }}>
                             {props.text}
                         </span>
                     </div>
@@ -29,7 +29,7 @@ const Message = (props) => {
                         </div>
 
                         <div className="col" style={{ marginRight: '2%', marginTop: '2%' }}>
-                            <img src={userIcon} className="btn-floating" style={{width: '32px', height: '32px', backgroundColor: 'white'}} />
+                            <img src={userIcon} className="btn-floating" style={{ width: '40px', height: '40px', backgroundColor: 'white' }} />
                             {/* <a className="btn-floating waves-effect waves-light blue" style={{ fontSize: '11px', textAlign: 'center' }}>{props.speaks}</a> */}
                         </div>
                     </div>

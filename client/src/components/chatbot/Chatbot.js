@@ -71,7 +71,7 @@ const Chatbot = () => {
     });
     talkInput?.current?.focus();
   }, [messagesEnd, talkInput]);
-  
+
 
   const _handleQuickReplyPayload = (event, payload, text) => {
     event.preventDefault();
@@ -92,15 +92,20 @@ const Chatbot = () => {
     } else if (message.msg && message.msg.payload.fields.cards) { //message.msg.payload.fields.cards.listValue.values
 
       return <div key={i}>
-        <div className="card-panel grey lighten-5 z-depth-1">
-          <div style={{ overflow: 'hidden' }}>
-            <div className="col s2">
-              <a href="/" className="btn-floating btn-large waves-effect waves-light blue">{message.speaks}</a>
-            </div>
-            <div>
-              <div style={{ height: 300, width: message.msg.payload.fields.cards.listValue.values.length * 270 }}>
-                {renderCards(message.msg.payload.fields.cards.listValue.values)}
+        <div className='col s12 m8 offset-m2 l6 offset-13'>
+          <div className="white lighten-5">
+          <div className="row">
+            <div style={{ overflow: 'hidden' }}>
+              <div className="col" style={{ marginLeft: '2%', marginTop: '2%' }}>
+                <img src={orgIcon} className="btn-floating" style={{ width: '40px', height: '40px', backgroundColor: 'white' }} />
+                {/*<a className="btn-floating waves-effect waves-light blue" style={{ fontSize: '11px', textAlign: 'center' }}>{props.speaks}</a>*/}
               </div>
+              <div>
+                <div style={{ height: 500, width: message.msg.payload.fields.cards.listValue.values.length * 300 }}>
+                  {renderCards(message.msg.payload.fields.cards.listValue.values)}
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -141,8 +146,8 @@ const Chatbot = () => {
     <div style={{ position: 'absolute' }} className='chatBoat_content'>
       <nav>
         <div className="chatboat-nav-wrapper blue">
-        <img src={orgIcon} className="btn-floating" style={{width: '45px', height: '45px', backgroundColor: 'white', marginLeft:'5%'}}/>
-          <a href="/" className="brand-logo" style={{marginLeft:"2%"}}>MHC Agent</a>
+          <img src={orgIcon} className="btn-floating" style={{ width: '45px', height: '45px', backgroundColor: 'white', marginLeft: '5%' }} />
+          <a href="/" className="brand-logo" style={{ marginLeft: "2%" }}>MHC Agent</a>
         </div>
       </nav>
 
@@ -152,7 +157,7 @@ const Chatbot = () => {
           style={{ float: "left", clear: "both" }}>
         </div>
       </div>
-      <div className="col s12" >
+      <div className="input_area" >
         <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={talkInput} placeholder="Type your message...:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
       </div>
     </div>

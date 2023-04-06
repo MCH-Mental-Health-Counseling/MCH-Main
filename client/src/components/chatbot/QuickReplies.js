@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuickReply from './QuickReply';
 
+const orgIcon = require('../Images/Organization Logo.png');
 
 class QuickReplies extends Component {
     constructor(props) {
@@ -30,10 +31,10 @@ class QuickReplies extends Component {
     render() {
         return (
             <div className="col s12 m8 offset-m2 l6 offset-l3">
-                <div className="card-panel grey lighten-5 z-depth-1">
+                <div className="white lighten-5">
                     <div className="row valign-wrapper">
                         <div className="col s2">
-                            <a className="btn-floating btn-large waves-effect waves-light blue">{this.props.speaks}</a>
+                        <img src={orgIcon} className="btn-floating" style={{ width: '40px', height: '40px', backgroundColor: 'white',marginLeft: '20%', marginTop: '2%' }} />
                         </div>
                         <div id="quick-replies" className="col s10">
                             {this.props.text && <p>
