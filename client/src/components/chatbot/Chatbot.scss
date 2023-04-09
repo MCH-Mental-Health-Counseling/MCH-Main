@@ -21,8 +21,8 @@
         border-top-left-radius: 5px;
     }
     #chatbot {
-        min-height: 65vh;
-        max-height: 65vh;
+        min-height: 70vh;
+        max-height: 70vh;
     }
     .input_area{
         padding: 0 1%;
@@ -52,3 +52,20 @@
         }
     }
 }
+
+.message-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999;
+  }

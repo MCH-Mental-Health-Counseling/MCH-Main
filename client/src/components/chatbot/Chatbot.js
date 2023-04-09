@@ -14,9 +14,10 @@ const cookies = new Cookies();
 
 const Chatbot = () => {
   // const [messagesEnd, setMessageEnd] = useState();
-  const messagesEnd = useRef();
+  const messagesEndRef = useRef(null);
   const talkInput = useRef();
   const [messages, setMessages] = useState([]);
+  const [showBot, setShowBot] = useState(true);
   // const [isInitial, setIsInitial] = useState(false);
   let isInitial = false;
 
@@ -63,14 +64,29 @@ const Chatbot = () => {
     }
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     messagesEnd?.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start"
+      behavior: "smooth"
     });
     talkInput?.current?.focus();
-  }, [messagesEnd, talkInput]);
+  }, [messagesEnd, talkInput]); */
+
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+
+  const show = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setShowBot(true);
+  };
+
+  const hide = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setShowBot(false);
+  };
 
 
   const _handleQuickReplyPayload = (event, payload, text) => {
@@ -101,7 +117,7 @@ const Chatbot = () => {
                 {/*<a className="btn-floating waves-effect waves-light blue" style={{ fontSize: '11px', textAlign: 'center' }}>{props.speaks}</a>*/}
               </div>
               <div>
-                <div style={{ height: 500, width: message.msg.payload.fields.cards.listValue.values.length * 300 }}>
+                <div style={{ height: 410, width: message.msg.payload.fields.cards.listValue.values.length * 300 }}>
                   {renderCards(message.msg.payload.fields.cards.listValue.values)}
                 </div>
               </div>
@@ -142,18 +158,23 @@ const Chatbot = () => {
     }
   }
   const orgIcon = require('../Images/Organization Logo.png');
-  return (
+  
+    if(showBot){
+      return (
     <div style={{ position: 'absolute' }} className='chatBoat_content'>
       <nav>
         <div className="chatboat-nav-wrapper blue">
           <img src={orgIcon} className="btn-floating" style={{ width: '45px', height: '45px', backgroundColor: 'white', marginLeft: '5%' }} />
           <a href="/" className="brand-logo" style={{ marginLeft: "2%" }}>MHC Agent</a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><a onClick={hide}><b>Close</b></a></li>
+          </ul>
         </div>
       </nav>
 
       <div id="chatbot" style={{ width: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
         {renderMessages(messages)}
-        <div ref={messagesEnd}
+        <div ref={messagesEndRef}
           style={{ float: "left", clear: "both" }}>
         </div>
       </div>
@@ -162,118 +183,25 @@ const Chatbot = () => {
       </div>
     </div>
   );
-}
-
-/*const steps = [
-    {
-      id: '1',
-      message: 'What is your name?',
-      trigger: 'name',
-    },
-    {
-      id: 'name',
-      user: true,
-      trigger: '3',
-    },
-    {
-      id: '3',
-      message: 'Hi {previousValue}! What is your gender?',
-      trigger: 'gender',
-    },
-    {
-      id: 'gender',
-      options: [
-        { value: 'male', label: 'Male', trigger: '5' },
-        { value: 'female', label: 'Female', trigger: '5' },
-      ],
-    },
-    {
-      id: '5',
-      message: 'How old are you?',
-      trigger: 'age',
-    },
-    {
-      id: 'age',
-      user: true,
-      trigger: '7',
-      validator: (value) => {
-        if (isNaN(value)) {
-          return 'value must be a number';
-        } else if (value < 0) {
-          return 'value must be positive';
-        } else if (value > 120) {
-          return `${value}? Come on!`;
-        }
-
-        return true;
-      },
-    },
-    {
-      id: '7',
-      message: 'Great! Check out your summary',
-      trigger: 'review',
-    },
-    {
-      id: 'review',
-      //component: <Review />,
-      //asMessage: true,
-      message: 'Great! Check out your summary',
-      trigger: 'update',
-    },
-    {
-      id: 'update',
-      message: 'Would you like to update some field?',
-      trigger: 'update-question',
-    },
-    {
-      id: 'update-question',
-      options: [
-        { value: 'yes', label: 'Yes', trigger: 'update-yes' },
-        { value: 'no', label: 'No', trigger: 'end-message' },
-      ],
-    },
-    {
-      id: 'update-yes',
-      message: 'What field would you like to update?',
-      trigger: 'update-fields',
-    },
-    {
-      id: 'update-fields',
-      options: [
-        { value: 'name', label: 'Name', trigger: 'update-name' },
-        { value: 'gender', label: 'Gender', trigger: 'update-gender' },
-        { value: 'age', label: 'Age', trigger: 'update-age' },
-      ],
-    },
-    {
-      id: 'update-name',
-      update: 'name',
-      trigger: '7',
-    },
-    {
-      id: 'update-gender',
-      update: 'gender',
-      trigger: '7',
-    },
-    {
-      id: 'update-age',
-      update: 'age',
-      trigger: '7',
-    },
-    {
-      id: 'end-message',
-      message: 'Thanks! Your data was submitted successfully!',
-      end: true,
-    },
-  ]
-
-const Chatbot = () => {
-    return (
-        <div>
-            <ChatBot steps={steps} />
+  } else {
+    return(
+    <div style={{ minHeight: 40, maxHeight: 500, width:400, position: 'absolute', bottom: 0, right: 0, border: '1px solid lightgray'}}>
+      <nav>
+        <div className="nav-wrapper blue">
+          <img src={orgIcon} className="btn-floating" style={{ width: '45px', height: '45px', backgroundColor: 'white', marginLeft: '5%' }} />
+          <a href="/" className="brand-logo" style={{ marginLeft: "2%" }}>MHC Agent</a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><a onClick={show}>Open</a></li>
+          </ul>
         </div>
-    )
-}*/
+      </nav>
+        <div ref={messagesEndRef}
+          style={{ float: "left", clear: "both" }}>
+        </div>
+    </div>
+  );
+  }
 
+}
 
 export default Chatbot;

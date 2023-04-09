@@ -10,9 +10,11 @@ import Chatbot from './chatbot/Chatbot';
 import "./App.scss";
 import Login from './Login';
 import Signup from './Signup';
+import ProfileIcon from './ProfileIcon';
+
 
 const App = () => {
-    const [view, setView] = useState("")
+    const [view, setView] = useState("");
     return (
         <div>
             <BrowserRouter>
@@ -25,6 +27,7 @@ const App = () => {
                             <Route exact path="/library" element={<Library />} />
                             <Route exact path="/login" element={<Login />} />
                             <Route exact path="/signup" element={<Signup />} />
+                            <Route exact path="/profileicon" element={<ProfileIcon />} />
                         </Routes>
                     </Header>
                 </div>

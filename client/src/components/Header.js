@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Chatbot from './chatbot/Chatbot';
 import "./Header.scss";
 
 const Header = (props) => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
+  
+    const handleLogin = () => {
+      setIsLoggedIn(true);
+      setUsername("JohnDoe"); // Replace with actual username obtained from login
+    };
+  
+    const handleLogout = () => {
+      setIsLoggedIn(false);
+      setUsername("");
+    };
+    
     return(
     <div className="header_container">
         <nav>
