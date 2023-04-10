@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.scss";
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,7 +15,9 @@ const Login = () => {
 
     try {
       const response = await axios.post("/api/login", { email, password });
+      console.log("login response ------ ", response);
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      props.onLogin();
       history("/");
     } catch (err) {
       setError(err.response.data.message);

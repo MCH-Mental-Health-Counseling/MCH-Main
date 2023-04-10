@@ -16,7 +16,7 @@ const Landing = ({ view, setView }) => {
                 <p onClick={openChatboat}>Get support with the help of our Chatbot.</p>
             </div>
             {/* {view === "chatboat" && ( */}
-                <Chatbot />
+                {/*<Chatbot />*/}
             {/* )} */}
         </>
     )

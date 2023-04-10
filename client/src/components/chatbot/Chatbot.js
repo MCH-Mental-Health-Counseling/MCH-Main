@@ -173,7 +173,7 @@ const Chatbot = () => {
           </ul>
         </div>
       </nav>
-
+        <div className='chatboat_block'>
       <div id="chatbot" style={{ width: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
         {renderMessages(messages)}
         <div ref={messagesEndRef}
@@ -182,6 +182,7 @@ const Chatbot = () => {
       </div>
       <div className="input_area" >
         <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '100%' }} ref={talkInput} placeholder="Type your message...:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
+      </div>
       </div>
     </div>
   );

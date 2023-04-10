@@ -32,18 +32,22 @@
     #chatbot {
         min-height: 65vh;
         max-height: 65vh;
+        @media screen and (min-width:1600px) {
+            min-height: 68vh;
+            max-height: 68vh;
+        }
     }
     .input_area{
         padding: 0 1%;
-        // box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+        width:100%;
         input{
             // background: #F3F3FF;
             height: 4.5rem;
             border-radius: 4px;
             font-size: 1.5rem;
             padding: 0 2%;
-            width: 96%;
-            box-shadow:  0 0 10px rgba(0,0,0,.4);
+            width: 98% !important;
+            box-shadow:  0 0 4px rgba(0,0,0,.4);
             border: none;
             &::placeholder{
                 color: #2d80b5;

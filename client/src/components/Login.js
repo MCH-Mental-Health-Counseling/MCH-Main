@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Login.scss";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-        const response = await axios.post("/api/login", { email, password });
+      const response = await axios.post("/api/login", { email, password });
       localStorage.setItem("user", JSON.stringify(response.data.user));
       history("/");
     } catch (err) {
