@@ -11,7 +11,8 @@
     "start": "node index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,6 @@
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "dialogflow": "^4.0.3",
-    "dialogflow-fulfillment": "^0.6.1",
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
     "pb-util": "^1.0.3",

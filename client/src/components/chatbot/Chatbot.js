@@ -8,6 +8,7 @@ import QuickReplies from './QuickReplies';
 import "./Chatbot.scss";
 //import ReactDOM from "react-dom";
 //import ChatBot from 'react-simple-chatbot';
+import { withRouter } from 'react-router-dom';
 
 
 const cookies = new Cookies();
@@ -18,6 +19,7 @@ const Chatbot = () => {
   const talkInput = useRef();
   const [messages, setMessages] = useState([]);
   const [showBot, setShowBot] = useState(true);
+  const [shopWelcomeSent, setShopWelcomeSent] = useState(false);
   // const [isInitial, setIsInitial] = useState(false);
   let isInitial = false;
 
