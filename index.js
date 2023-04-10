@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 
 require('./routes/dialogFlowRoutes')(app);
 require('./routes/loginRoutes')(app);
-require('./chatbot/models/registration');
+//require('./chatbot/models/registration');
 //require('./routes/fulfillmentRoutes')(app);
-require('./routes/messagesRoutes')(app);
+//require('./routes/messagesRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // js and css files
