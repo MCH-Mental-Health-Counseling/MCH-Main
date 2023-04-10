@@ -181,7 +181,7 @@ const Chatbot = () => {
         </div>
       </div>
       <div className="input_area" >
-        <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={talkInput} placeholder="Type your message...:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
+        <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '100%' }} ref={talkInput} placeholder="Type your message...:" onKeyPress={_handleInputKeyPress} id="user_says" type="text" />
       </div>
     </div>
   );

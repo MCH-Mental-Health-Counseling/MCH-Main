@@ -21,19 +21,19 @@
         border-top-left-radius: 5px;
     }
     #chatbot {
-        min-height: 70vh;
-        max-height: 70vh;
+        min-height: 65vh;
+        max-height: 65vh;
     }
     .input_area{
-        padding: 0 1%;
+        padding: 0 0%;
         // box-shadow: 0 15px 25px rgba(0,0,0,0.6);
         input{
             // background: #F3F3FF;
             height: 4.5rem;
-            border-radius: 4px;
+            border-radius: 1px;
             font-size: 1.5rem;
             padding: 0 2%;
-            width: 96%;
+            width: 100%;
             box-shadow:  0 0 10px rgba(0,0,0,.4);
             border: none;
             &::placeholder{
