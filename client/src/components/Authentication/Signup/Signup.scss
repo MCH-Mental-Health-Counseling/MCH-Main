@@ -1,0 +1,71 @@
+.signup_container{
+    background-image: url("../../../Assets/mhc_bg1.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    .signup_content{
+        background-color: #fff;
+        height: 52rem;
+        width: 30%;
+        border-radius: 10px;
+        position: absolute;
+        left: 10%;
+        top: 12%;
+        padding: 2%;
+        box-shadow: 0 0 5px #5a5a5a;
+    }
+    h2{
+        margin-top: 0;
+        color: #2d80b5;
+        font-weight: 600;
+        font-family: "popins";
+        margin-bottom: 3rem;
+    }
+    .signup_input{
+        margin-bottom: 1.5rem;
+        label{
+            font-size: 1.4rem;
+            color: #000;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        input{
+            margin-top: 1rem;
+            border: none;
+            padding-left: 2%;
+            border-radius: 5px;
+            height: 4rem;
+            background-color: #e8f0f4;
+           &::placeholder{
+            color:#5a5a5a;
+            font-size: 1.35rem;
+           }
+
+        }
+        input:not(.browser-default):focus:not([readonly]){
+            box-shadow: none;
+            border-bottom: 0;
+        }
+    }
+    .signup_btn{
+        text-align: center;
+        button{
+            height: 4rem;
+            width: 12rem;
+            border-radius: 5px;
+            box-shadow: none;
+            border: none;
+            background-color: #2d80b5;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+    }
+    p{
+        font-size: 1.4rem;
+        margin-top: 2.5rem;
+    }
+
+}

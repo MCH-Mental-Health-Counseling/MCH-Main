@@ -8,9 +8,9 @@ import Library from './pages/library/Library';
 import Home from './pages/Home/Home';
 import Chatbot from './chatbot/Chatbot';
 import "./App.scss";
-import Login from './Login';
-import Signup from './Signup';
-import ProfileIcon from './ProfileIcon';
+import Login from './Authentication/Login/Login';
+import Signup from './Authentication/Signup/Signup';
+import ProfileIcon from './Authentication/Profile/ProfileIcon';
 
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
                     <Header>
                         <Routes>
                             <Route exact path="/" element={<Landing view={view} setView={setView} />} />
+                            <Route exact path="/landing_login" element={<Landing view={view} setView={setView} />} />
                             <Route exact path="/home" element={<Home />} />
                             <Route exact path="/pages" element={<About />} />
                             <Route exact path="/library" element={<Library />} />
