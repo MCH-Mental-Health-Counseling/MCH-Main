@@ -5,7 +5,9 @@ const app=express();
 
 const config= require('./config/keys');
 const mongoose = require('mongoose');
-mongoose.connect(config.mongoURI, {useNewUrlParser:true});
+const dotenv = require("dotenv");
+dotenv.config();
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser:true,useUnifiedTopology:true});
 
 app.use(bodyParser.json());
 
