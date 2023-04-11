@@ -44,7 +44,7 @@ class Header extends Component {
                 </nav>
                 <div className='content_block'>{this.props.children}</div>
 
-                <Chatbot />
+                <Chatbot loggedIn={this.state.loggedIn}/>
             </div>
         )
     }

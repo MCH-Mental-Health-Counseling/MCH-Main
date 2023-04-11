@@ -7,7 +7,7 @@ const Message = (props) => {
 
         <div className="col s12 m8 offset-m2 l6 offset-13">
             <div className="white lighten-5">
-                {props.speaks === 'MHC' && <div className="row valign-wrapper" style={{ display: 'flex', alignItems: 'center', marginBottom: 0 }}>
+                {props.speaks === 'bot' && <div className="row valign-wrapper" style={{ display: 'flex', alignItems: 'center', marginBottom: 0 }}>
 
                     <div className="col" style={{ marginLeft: '2%', marginTop: '2%' }}>
                         <img src={orgIcon} className="btn-floating" style={{ width: '40px', height: '40px', backgroundColor: 'white' }} />

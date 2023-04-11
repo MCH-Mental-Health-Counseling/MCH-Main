@@ -4,8 +4,8 @@
     bottom: 10px;
     min-width: 500px;
     max-width: 500px;
-    min-height: 80vh !important;
-    max-height: 80vh !important;
+    min-height: 85vh !important;
+    max-height: 85vh !important;
     background-color: #fff;
     // box-shadow: 1px 0px 4px #2d80b5;
     // box-shadow: 1px 0px 4px #5a5a5a;
@@ -30,8 +30,8 @@
         }
     }
     #chatbot {
-        min-height: 65vh;
-        max-height: 65vh;
+        min-height: 69vh;
+        max-height: 69vh;
         @media screen and (min-width:1600px) {
             min-height: 68vh;
             max-height: 68vh;

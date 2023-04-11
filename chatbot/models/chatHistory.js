@@ -1,8 +1,15 @@
-const mongoose = require('mongoose');
-const{Schema} = mongoose;
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const chatHistory = new Schema ({
+const chatHistorySchema = new Schema(
+  {
+    userId: { type: Schema.Types.ObjectId, required: true, ref: 'users' },
+    message: { type: String, required: true },
+    from: { type: String, required: true }
+  },
+  { versionKey: false, timestamps: true, collection: "messages" }
+);
 
-});
+const ChatHistory = mongoose.model("messages", chatHistorySchema);
 
-mongoose.model('chathistory', chatHistory);
+module.exports = ChatHistory;
